@@ -1,0 +1,9 @@
+[Unit]
+Description=Ebay Shipping Last Call Notifier
+
+[Service]
+Type=oneshot
+ExecStart={{ node }} {{ entrypoint }}
+Environment="DISPLAY=:0"
+User={{ user }}
+Group={{ group }}

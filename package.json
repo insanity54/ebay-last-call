@@ -1,0 +1,21 @@
+{
+  "name": "ebay-last-call",
+  "version": "0.0.1",
+  "description": "A simple script which verbally alerts the eBay seller if there are shipments to make. Meant to be called via systemd or similar.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "systemd": "bash -x src/install.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/insanity54/ebay-last-call.git"
+  },
+  "author": "Chris Grimmett <chris@grimtech.net>",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/insanity54/ebay-last-call/issues"
+  },
+  "homepage": "https://github.com/insanity54/ebay-last-call#readme"
+}

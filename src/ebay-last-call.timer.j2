@@ -1,0 +1,8 @@
+[Unit]
+Description=Run Ebay Shipping Last Call Notifier once a day
+
+[Timer]
+OnCalendar={{ calendar }}
+
+[Install]
+WantedBy=multi-user.target
