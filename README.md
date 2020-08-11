@@ -7,7 +7,7 @@ I set systemd to run this script at the same time configured as my eBay store's 
 
 ## Installation
 
-`npm run install`
+`npm run systemd`
 
 This script generates a systemd service, copies it to /etc/systemd/system/ and enables it to run on a schedule.
 
