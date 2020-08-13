@@ -5,6 +5,11 @@ A simple script which verbally alerts the eBay seller that it's time to ship. Me
 I set systemd to run this script at the same time configured as my eBay store's [same business day handling time](https://www.ebay.com/ship/prf#)
 
 
+## Dependencies
+
+  * cvlc
+  * espeak
+
 ## Installation
 
 `npm run systemd`
