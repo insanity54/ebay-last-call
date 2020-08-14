@@ -4,11 +4,17 @@
  *
  * This is the file that gets called once per day by systemd.
  */
-
+const path = require('path');
+process.env.NODE_CONFIG_DIR = path.join(__dirname, 'config');
 const weather = require('weather-js');
 const util = require('util');
 const execFile = util.promisify(require('child_process').execFile);
 const config = require('config');
+
+if (typeof config.location === 'undefined') throw new Error('config.location was not defined. Was it configured in config/default.json?');
+if (typeof config.degreeType === 'undefined') throw new Error('config.degreeType was not defined. Was it configured in config/default.json?');
+if (typeof config.chimeSound === 'undefined') throw new Error('config.chimeSound was not defined. Was it configured in config/default.json?');
+
 
 async function chime() {
   try {
@@ -30,7 +36,12 @@ async function getWeather(location, degreeType) {
 }
 
 async function weatherReport() {
-  let w = await getWeather(config.location, config.degreeType);
+  let w;
+  try {
+    w = await getWeather(config.location, config.degreeType);
+  } catch (e) {
+    console.error(`call to getWeather failed with error ${e}`)
+  }
   let loc = w[0].location;
   let cur = w[0].current;
   let dtt = `${loc.degreetype === 'F' ? 'Fahrenheit' : 'Celcius'}`
