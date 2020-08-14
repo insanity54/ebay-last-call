@@ -4,6 +4,7 @@ bindir="$(dirname "$(readlink -fm "$0")")"
 echo "${bindir}"
 cd "${bindir}"
 cd ../
+. .env
 
 $(which node) ./src/generateServiceFile.js | sudo tee /etc/systemd/system/ebay-last-call.service &&
 $(which node) ./src/generateTimerFile.js | sudo tee /etc/systemd/system/ebay-last-call.timer &&
