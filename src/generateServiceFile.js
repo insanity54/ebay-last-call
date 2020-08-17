@@ -11,8 +11,8 @@ let execFile = util.promisify(child_process.execFile);
 
 const templatePath = path.join(__dirname, 'ebay-last-call.service.j2');
 const entrypoint = path.join(__dirname, '..', 'index.js');
-const user = process.argv[1];
-const group = process.argv[2];
+const user = process.argv[2];
+const group = process.argv[3];
 
 (async () => {
   let whichNode = await execFile('which', ['node'], { stdio: 'pipe' });

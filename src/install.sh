@@ -23,7 +23,7 @@ cd "${bindir}"
 cd ../
 
 # generate systemd .service and .timer files
-$(which node) ./src/generateServiceFile.js "${runasUser} ${runasGroup}" | sudo tee /etc/systemd/system/ebay-last-call.service &&
+$(which node) ./src/generateServiceFile.js "${runasUser}" "${runasGroup}" | sudo tee /etc/systemd/system/ebay-last-call.service &&
 $(which node) ./src/generateTimerFile.js | sudo tee /etc/systemd/system/ebay-last-call.timer &&
 sudo systemctl daemon-reload &&
 sudo systemctl start ebay-last-call.timer &&
