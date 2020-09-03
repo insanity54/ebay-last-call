@@ -14,9 +14,10 @@ const config = require('config');
 if (typeof config.location === 'undefined') throw new Error('config.location was not defined. Was it configured in config/default.json?');
 if (typeof config.degreeType === 'undefined') throw new Error('config.degreeType was not defined. Was it configured in config/default.json?');
 if (typeof config.chimeSound === 'undefined') throw new Error('config.chimeSound was not defined. Was it configured in config/default.json?');
-
+console.log(`config.location:${config.location}\nconfig.degreeType:${config.degreeType}\nconfig.chimeSound${config.chimeSound}`)
 
 async function chime() {
+  console.log(`chiming ${config.chimeSound}`);
   try {
     const { stdout, stderr } = await execFile('/usr/bin/cvlc', [config.chimeSound, 'vlc://quit'], { shell: true })
     console.log(stdout);

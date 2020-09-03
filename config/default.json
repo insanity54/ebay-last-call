@@ -2,5 +2,5 @@
   "location": "Spokane, WA",
   "degreeType": "F",
   "chimeSound": "~/.local/share/ebay-last-call/airbus-chime.wav",
-  "ebayShippingTime": "Mon..Sat *-*-* 8:30"
+  "ebayShippingTime": "Mon..Sat *-*-* 8:30:00"
 }
